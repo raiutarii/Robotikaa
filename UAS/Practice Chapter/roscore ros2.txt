@@ -1,0 +1,44 @@
+rai@rai-VirtualBox:~$ cd /opt/
+rai@rai-VirtualBox:/opt$ cd ros/
+rai@rai-VirtualBox:/opt/ros$ ls
+foxy  noetic
+rai@rai-VirtualBox:/opt/ros$ cd noetic
+rai@rai-VirtualBox:/opt/ros/noetic$ source /opt/ros/noetic/setup.bash
+ROS_DISTRO was set to 'foxy' before. Please make sure that the environment does not mix paths from different distributions.
+rai@rai-VirtualBox:/opt/ros/noetic$ cd
+rai@rai-VirtualBox:~$ roscore
+... logging to /home/rai/.ros/log/0caa312c-aae2-11ee-87c9-a9ecf7572d97/roslaunch-rai-VirtualBox-35955.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://rai-VirtualBox:46285/
+ros_comm version 1.16.0
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [35965]
+ROS_MASTER_URI=http://rai-VirtualBox:11311/
+
+setting /run_id to 0caa312c-aae2-11ee-87c9-a9ecf7572d97
+process[rosout-1]: started with pid [35975]
+started core service [/rosout]
+
+^C[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+rai@rai-VirtualBox:~$ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+rai@rai-VirtualBox:~$ gedit
+^C
+rai@rai-VirtualBox:~$ gedit ~/.bashrc
