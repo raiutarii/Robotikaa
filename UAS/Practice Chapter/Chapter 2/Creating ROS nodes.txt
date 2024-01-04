@@ -1,0 +1,100 @@
+#include "ros/ros.h" 
+#include "std_msgs/Int32.h" 
+#include <iostream> 
+int main(int argc, char **argv) { 
+ ros::init(argc, argv,"demo_topic_publisher"); 
+ ros::NodeHandle node_obj; 
+ ros::Publisher number_publisher = node_obj.advertise<std_
+msgs::Int32>("/numbers", 10); 
+ ros::Rate loop_rate(10); 
+ int number_count = 0; 
+ while ( ros::ok() ) { 
+ std_msgs::Int32 msg; 
+ msg.data = number_count; 
+ ROS_INFO("%d",msg.data); 
+ number_publisher.publish(msg); 
+ loop_rate.sleep(); 
+ ++number_count; 
+ } 
+ return 0; 
+} 
+
+Here, we are sending an integer value through a topic. So, we need a message type to 
+handle the integer data. std_msgs contains the standard message definition of primitive 
+data types, while std_msgs/Int32.h contains the integer message definition. Now, we 
+can initialize a ROS node with a name. It should be noted that the ROS node should be 
+unique:
+ros::init(argc, argv,"demo_topic_publisher");
+
+Next, we need to create a Nodehandle object, which is used to communicate with the 
+ROS system. This line is mandatory for all ROS C++ nodes:
+ros::NodeHandle node_obj;
+
+The following line creates a topic publisher and names the topic "/numbers" with a 
+message type of std_msgs::Int32. The second argument is the buffer size. It indicates 
+how many messages are stored in a buffer if the publisher can't publish data fast enough. 
+This number should be set while considering the message publishing rate. If your program 
+publishes faster than the queue size, some messages will be dropped. The lowest accepted 
+number for the queue size is 1, while 0 means an infinite queue:
+ros::Publisher number_publisher = node_obj.advertise<std_
+msgs::Int32>("/numbers", 10);
+
+The following code is used to set the frequency of the main loop of the program and, 
+consequently, the publishing rate in our case:
+ros::Rate loop_rate(10); 
+
+This is an infinite while loop, and it quits when we press Ctrl + C. The ros::ok()
+function returns zero when there is an interrupt. This can terminate this while loop:
+while ( ros::ok() ) { 
+
+The following lines create an integer ROS message, assigning to it an integer value. Here, 
+data is the field name of the msg object:
+std_msgs::Int32 msg; 
+msg.data = number_count;
+
+This will print the message data. These lines are used to log the ROS information and 
+publish the preceding message to the ROS network:
+ROS_INFO("%d",msg.data);
+number_publisher.publish(msg);
+
+Finally, this line will provide the necessary delay to achieve a frequency of 10 Hz:
+loop_rate.sleep();
+
+Now that we've discussed the publisher node, we can discuss the subscriber node, which is 
+demo_topic_subscriber.cpp. 
+Here is the definition of the subscriber node:
+#include "ros/ros.h" 
+#include "std_msgs/Int32.h" 
+#include <iostream>
+void number_callback(const std_msgs::Int32::ConstPtr& msg) { 
+ ROS_INFO("Received [%d]",msg->data); 
+} 
+int main(int argc, char **argv) { 
+ ros::init(argc, argv,"demo_topic_subscriber"); 
+ ros::NodeHandle node_obj; 
+ ros::Subscriber number_subscriber = node_obj.subscribe("/
+numbers",10,number_callback); 
+ ros::spin(); 
+ return 0; 
+}
+
+Like before, the code starts with the definition of the header files. Then, we develop the 
+callback function, which will execute whenever a ROS message comes to the 
+/numbers topic. Whenever data reaches this topic, the function will call and extract the 
+value and print it to the console:
+void number_callback(const std_msgs::Int32::ConstPtr& msg) { 
+ ROS_INFO("Received [%d]",msg->data); 
+} 
+
+
+This is the definition of the subscriber, and here, we are giving the topic name needed to 
+subscribe, the buffer size, and the callback function. We are also subscribing to the 
+/numbers topic. We looked at the callback function in the preceding section:
+ros::Subscriber number_subscriber = node_obj.subscribe("/
+numbers",10,number_callback);
+
+This is an infinite loop in which the node will wait in this step. This code will fasten the 
+callbacks whenever data reaches the topic and will terminate only when we press Ctrl + C:
+ros::spin(); 
+Now the code is complete. Before we execute it, we need to compile it as discussed in the 
+next section.

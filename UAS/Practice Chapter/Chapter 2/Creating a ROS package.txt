@@ -1,0 +1,53 @@
+The first requirement for working with ROS packages is to create a ROS catkin
+workspace. After installing ROS, we can create and build a catkinworkspace called 
+catkin_ws:
+mkdir -p ~/catkin_ws/src 
+
+To compile this workspace, we should source the ROS environment to get access to ROS 
+functions:
+source /opt/ros/noetic/setup.bash
+
+Switch to the source src folder that we created previously:
+cd ~/catkin_ws/src 
+
+Initialize a new catkin workspace:
+catkin_init_workspace
+
+We can build the workspace even if there are no packages. We can use the following 
+command to switch to the workspace folder:
+cd ~/catkin_ws 
+
+We can build the workspace even if there are no packages. We can use the following 
+command to switch to the workspace folder:
+cd ~/catkin_ws 
+
+This command will create a devel and a build directory in your catkin workspace. 
+Different setup files are located inside the devel folder. To add the created ROS 
+workspace to the ROS environment, we should source one of these files. In addition, we 
+can source the setup file of this workspace every time a new bash session starts with the 
+following command:
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
+source ~/.bashrc 
+
+After setting the catkin workspace, we can create our own package that has sample 
+nodes to demonstrate the working of ROS topics, messages, services, and actionlib.
+Note that if you haven't set up the workspace correctly, then you won't be able to use any 
+ROS commands. The catkin_create_pkg command is the most convenient way to 
+create a ROS package. This command is used to create our package, in which we are going 
+to create demos of various ROS concepts.
+Switch to the catkin workspace's src folder and create the package by using the 
+following command:
+catkin_create_pkg package_name [dependency1] [dependency2] 
+
+Source code folder: All ROS packages, either created from scratch or downloaded 
+from other code repositories, must be placed in the src folder of the ROS workspace; 
+otherwise, they won't be recognized by the ROS system and be compiled.
+Here is the command for creating the sample ROS package:
+catkin_create_pkg mastering_ros_demo_pkg roscpp std_msgs 
+actionlib actionlib_msgs
+
+After creating this package, build the package without adding any nodes by using the 
+catkin_make command. This command must be executed from the catkin workspace 
+path. The following command shows you how to build our empty ROS package:
+cd ~/catkin_ws && catkin_make
+

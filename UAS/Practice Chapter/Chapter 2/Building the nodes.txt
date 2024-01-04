@@ -1,0 +1,45 @@
+We must edit the CMakeLists.txt file in the package to compile and build the source 
+code. Navigate to mastering_ros_demo_pkg to view the existing CMakeLists.txt
+file. The following code snippet in this file is responsible for building these two nodes:
+include_directories( 
+ include 
+ ${catkin_INCLUDE_DIRS} 
+) 
+#This will create executables of the nodes 
+add_executable(demo_topic_publisher src/demo_topic_publisher.
+cpp) 
+add_executable(demo_topic_subscriber src/demo_topic_subscriber.
+cpp) 
+#This will link executables to the appropriate libraries 
+target_link_libraries(demo_topic_publisher ${catkin_LIBRARIES}) 
+target_link_libraries(demo_topic_subscriber ${catkin_
+LIBRARIES})
+
+We can add the preceding snippet to create a new CMakeLists.txt file for compiling 
+the two pieces of code.
+
+The catkin_make command is used to build the package. First, let's switch to a 
+workspace:
+cd ~/catkin_ws
+
+Build the ROS workspace, including mastering_ros_demo_package, as follows:
+catkin_make
+
+We can either use the preceding command to build the entire workspace or use the 
+-DCATKIN_WHITELIST_PACKAGES option. With this option, it is possible to set one or 
+more packages to compile:
+catkin_make -DCATKIN_WHITELIST_PACKAGES="pkg1,pkg2,..."
+
+Note that it is necessary to revert this configuration to compile other packages or the 
+entire workspace. This can be done using the following command:
+catkin_make -DCATKIN_WHITELIST_PACKAGES="" 
+
+If the building is done, we can execute the nodes. First, start roscore:
+roscore
+
+Now, run both commands in two shells. In the running publisher, run the following 
+command:
+rosrun mastering_ros_demo_package demo_topic_publisher
+
+In the running subscriber, run the following command:
+rosrun mastering_ros_demo_package demo_topic_subscriber 
