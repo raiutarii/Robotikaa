@@ -1,0 +1,18 @@
+Control of Mobile Robotics
+Lab 2 - Kinematics
+Robot: GCTronic' e-puck
+Language: Python
+
+Task 1 - Rectangle
+Given : height, width, time, speed
+print: degrees
+
+Task 2 - Circles 
+Given: radius1, radius2, time, speed
+print: degrees
+example case => ERROR: cannot complete path in given time
+
+Task 3 - waypoints
+Given: radius, distance, time, speed 
+print: degrees
+example case => ERROR: velocity exceeds 6.28 (max velocity)

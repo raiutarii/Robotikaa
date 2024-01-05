@@ -1,0 +1,43 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.12698412869136744 0.7414999544140612 -0.6588268730588026 0.5085945993627069
+  position -2.7208835428148452 0.9699444356285205 1.349486018932578
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 4
+  floorAppearance Parquetry {
+    type "chequered"
+    colorOverride 1 0.333333 1
+  }
+  wallAppearance BrushedAluminium {
+    colorOverride 0 0 0
+  }
+}
+E-puck {
+  hidden position_0_0 2180.3833402776436
+  hidden position_0_1 2394.4918359836734
+  hidden linearVelocity_0 0.05621094560064985 2.481635798877251e-05 2.4380971375004265e-08
+  hidden angularVelocity_0 -1.1031836291044997e-05 0.00020809217906825328 0.09159437850128033
+  hidden rotation_1 0 -1 0 6.165146620852512
+  hidden linearVelocity_1 0.053830694293118944 2.340346911922935e-05 2.659399504170077e-08
+  hidden angularVelocity_1 -0.0012612140831832095 2.680189009116739 0.09331664215394235
+  hidden rotation_2 0 -1 0 5.68495135892868
+  hidden linearVelocity_2 0.05859335532123085 2.7297182957769153e-05 -2.698486097009882e-08
+  hidden angularVelocity_2 -0.001274159654433409 2.9408913098726477 0.09358408340022777
+  translation 8.374200995001497e-06 -0.011313034790446921 -6.43053601673254e-05
+  rotation 0.04680554072184926 0.43692117671890596 0.8982812069125692 0.002402873873812278
+}

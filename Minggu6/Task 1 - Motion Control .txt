@@ -1,0 +1,10 @@
+Task 1 - Motion Control 
+
+Robot should move in a straight line a distance of "X" inches at constant 
+velocity "V" inches per sec
+
+Test cases:
+velocity exceeds 6.28 (max velocity)
+velocity is positive
+velocity is 0
+velocity is negative

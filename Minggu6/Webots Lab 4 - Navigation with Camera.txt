@@ -1,0 +1,12 @@
+Task 1 - Goal Facing
+	objective: face goal from  any starting point
+	test: move robot around map 
+	move goal around map
+
+Task 2 - motion to goal 
+	objective: face goal from any point, drive towards goal, stop 5 inches away
+	move goal around map 
+
+Task 3 - bug zero algorithm
+	objective: if no obstacle => motion to goal
+			else => wall follow

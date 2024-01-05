@@ -1,0 +1,11 @@
+Task 2 - Encoder Reading (position_sensor)
+
+The robot should move around a circle of radius "R1" inches with
+velocity "V" inches per second
+
+Test cases:
+velocity exceeds 6.28 (max velocity)
+velocity is negative
+velocity is 0
+velocity is positive
+radius of circle is 0

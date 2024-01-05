@@ -1,0 +1,27 @@
+Control of Mobile Robotics
+Lab 3 - Navigation with Distance Sensors
+Robot: GCTronic' e-puck
+Language: Python
+
+All tasks:
+	print: 3 distance sensor values ( LEFT FRONT RIGHT)
+	proportional control functions decide motor velocity
+	tested with proportional gain value =>  KP = [0.1, 0.5, 1.0, 2.0, 2.5, 5.0]
+
+
+
+
+Task 1 - Motion with PID - Front Distance Sensor
+	Given: desire stopping distance from wall =>    10 inches
+	Movement: straight to wall, use PID to stop
+
+
+Task 2 - Motion wwith PID - Side Distance Sensors
+	Given: desire distance from the side walls =>  2.5 inches < desired < 5.5 inches
+
+
+Task 3 - Wall following - corridor
+	Given: desired distance from side walls => 2.5 inches < desired < 5.5 inches
+
+Task 4 - Wall following - maze
+	given: desired distance from side walls =>   2.5 inches M desired < 5.5 inches
